@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = new Array("omshingare__.jpeg", "omshingare.jpg")
+        var CurrentBanner = 0;
+        function changeBanner(params) {
+            if (document.images) {
+                CurrentBanner += params;
+                if (CurrentBanner >= arr.length) {
+                    CurrentBanner = 0;
+                }
+                else if (CurrentBanner < 0) {
+                    CurrentBanner = arr.length - 1;
+                }
+                document.img.src = arr[CurrentBanner]
+
+            }
+        }
+
+    </script>
+    <img src="omshingare.jpg" alt="om shingare" name="img">
+    <form name="form1">
+        <input type="button" name="prev" value="prev" onclick="changeBanner(1)">
+        <input type="button" name="Next" value="next" onclick="changeBanner(-1)">
+    </form>
+</body>
+
+</html>
