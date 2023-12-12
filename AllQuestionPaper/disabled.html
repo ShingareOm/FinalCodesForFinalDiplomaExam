@@ -1,0 +1,27 @@
+<html>
+
+<body>
+    <form name="form1" id="fid">
+        Enter Your Name : <input type="text" name="tf1" id="tid1">
+
+        <br><br>
+        <input type="button" name="b1" value="Disable" onclick="ChangeState()">
+    </form>
+    <script language="javascript" type="text/javascript">
+        with (document.forms.form1) {
+            function ChangeState() {
+                if (b1.value == "Disable") {
+                    b1.value = "Enable";
+                    tf1.disabled = true;
+                }
+                else {
+                    tf1.disabled = false;
+                    b1.value = "Disable";
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
