@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <script language="javascript" type="text/javascript">
+        function CreateCookie() {
+            expiryDate = new Date();
+            expiryDate.setMonth(expiryDate.getMonth() + 1);
+            with (document.forms.form1) {
+                document.cookie = "Username=" + tf1.value + ";expires="+expiryDate.toUTCString()+";"
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form name="form1" id="fid">
+        Enter Username :
+        <input type="text" name="tf1" id="tid1">
+        <input type="button" name="b1" onclick="CreateCookie()" value="Create">
+    </form>
+</body>
+
+</html>

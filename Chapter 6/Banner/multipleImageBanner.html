@@ -1,0 +1,25 @@
+<html>
+
+<body>
+    <script language="javascript" type="text/javascript">
+        var Img_Array = new Array("Strawberry.jpg", "orange.jpg", "banana.jpg", "mango.jpg");
+        var timerID = null, banner = 0;
+        function Display() {
+            window.setInterval(display_Banner, 300);
+        }
+        function display_Banner() {
+            if (document.images) {
+                banner++;
+                if (banner == Img_Array.length) {
+                    banner = 0;
+                }
+                document.getElementById('bid').src = Img_Array[banner];
+            }
+        } 
+    </script>
+    <img src="Apple.jpg" width="500" height="300" id="bid">
+    <br><br>
+    <input type="button" name="b1" value="Display Banners" onclick="Display()">
+</body>
+
+</html>

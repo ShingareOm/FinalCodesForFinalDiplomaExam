@@ -1,0 +1,17 @@
+<script>
+    var currentPosition = 0;
+    var MaxPosition = 100;
+    var blanks = "";
+    setInterval(() => {
+        displayText("This is text");
+    }, 1000);
+    function displayText(text) {
+        window.status = blanks + text;
+        currentPosition++;
+        blanks += " ";
+        if (currentPosition > MaxPosition) {
+            blanks = "";
+            currentPosition = 0;
+        }
+    }
+</script>

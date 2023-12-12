@@ -1,0 +1,17 @@
+<script>
+    var arr = new Array("one.png", "two.png", "three.png");
+    var banner = 0;
+    function display() {
+        setInterval(start, 100);
+    }
+    function start(){
+        if (document.images) {
+            if(banner === arr.length)
+                banner = 0
+            else{
+                pid.src = arr[banner];
+                banner++;
+            }
+        }
+    }
+</script>

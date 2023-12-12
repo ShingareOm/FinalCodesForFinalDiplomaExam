@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Example</title>
+</head>
+
+<body>
+    <h2>Cookie</h2>
+    <form name="form1">
+        Enter UserName: <input type="text" name="tf1" id="tf1">
+        <br><br>
+        Enter Password: <input type="password" name="tf2" id="tf2">
+        <br><br>
+        <input type="button" value="CreateCookie" onclick="createCookie()">
+        <input type="button" value="ReadCookie" onclick="readCookie()">
+        <input type="button" value="UpdateCookie" onclick="updateCookie()">
+        <input type="button" value="DeleteCookie" onclick="deleteCookie()">
+    </form>
+    <script>
+        function createCookie() {
+            var name = document.forms.form1.tf1.value;
+            var pass = document.forms.form1.tf2.value;
+
+            if (name === "" || pass === "") {
+                alert("please enter correct username or password")
+            }
+            else {
+                var date = new Date();
+                date.setMonth(date.getMonth() + 1);
+                date = date.toUTCString();
+                document.cookie = name + "=" + pass + ";expires=" + date + ";";
+                alert("cookie created");
+            }
+        }
+        function readCookie() {
+            var allCookies = document.cookie;
+            var name;
+            var pass;
+
+            if (allCookies.length === 0) {
+                alert("No cookie!")
+            }
+            else {
+                for (let i = 0; i < allCookies.length; i++) {
+                    name = allCookies[i].split("=")[0];
+                    pass = allCookies[i].split("=")[1];
+                    alert("name : " + name + ", pass : " + pass + "\n")
+                }
+            }
+        }
+        function updateCookie() {
+            var allCookies = document.cookie;
+            allCookies = allCookies.split(";");
+            var name = document.forms.form1.tf1.value;
+            var pass = document.forms.form1.tf2.value;
+
+            if (allCookies.length === 0) {
+                alert("No cookie found!")
+            }
+            else {
+                var date = new Date();
+                date.setMonth(date.getMonth() + 1);
+                date = date.toUTCString();
+
+                for (let i = 0; i < allCookies.length; i++) {
+                    if (allCookies[i].indexOf(name) >= 0) {
+                        document.cookie = name + "=" + pass + ";expires=" + date + ";";
+                        alert("Updated");
+                        return;
+                    }
+                }
+                alert(name + " not found");
+            }
+        }
+        function deleteCookie() {
+            var allCookies = document.cookie;
+            allCookies = allCookies.split(";");
+            var name = document.forms.form1.tf1.value;
+
+            if (allCookies.length === 0) {
+                alert("No cookie found!")
+            }
+            else {
+                var date = new Date();
+                date.setMonth(date.getMonth() - 1);
+
+                for (let i = 0; i < allCookies.length; i++) {
+                    if (allCookies[i].indexOf(name) >= 0) {
+                        document.cookie = name + "=;expires=" + date + ";";
+                        alert("Deleted");
+                        return;
+                    }
+                }
+                alert(name + " not found");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

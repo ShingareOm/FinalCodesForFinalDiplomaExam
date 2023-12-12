@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window with Frames</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        function openChildWindow() {
+            // Open a new window with two frames
+            var childWindow = window.open('', '_blank', 'width=400,height=200');
+
+            // Content for the child window frames
+            var frame1Content = '<html><head></head><body><button onclick="openImage()">Click here!</button></body></html>';
+            var frame2Content = '<html><head></head><body><img id="imageFrame" src="" style="max-width:100%; max-height:100%;"></body></html>';
+
+            // Write content to the frames
+            childWindow.document.write(frame1Content);
+            childWindow.frames[1].document.write(frame2Content);
+
+            // Function to open an image in the second frame
+            childWindow.openImage = function () {
+                var imageUrl = 'https://placekitten.com/200/300'; // Replace with your image URL
+                childWindow.frames[1].document.getElementById('imageFrame').src = imageUrl;
+            };
+        }
+    </script>
+</head>
+
+<body>
+
+    <h2>Main Window</h2>
+
+    <button onclick="openChildWindow()">Open Child Window</button>
+
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <style>
+        #statusBar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: auto;
+            background-color: #989898;
+            padding-right: 10px;
+            border: 1px solid #ccc;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <script language="javascript" type="text/javascript">
+        var scrollPos = 0, maxScroll = 100, blanks = "";
+
+        function display() {
+            setInterval(function () {
+                displayText('This text is moving');
+            }, 500);
+        }
+
+        function displayText(text) {
+            var para = document.getElementById("statusBar");
+            para.innerHTML = blanks + text;
+            
+            ++scrollPos;
+            blanks += " ";
+            if (scrollPos > maxScroll) {
+                scrollPos = 0;
+                blanks = "";
+            }
+        }
+    </script>
+    <form name="form1">
+        <pre><div id="statusBar"></div></pre>
+        <input type="button" name="b1" value="Show Message" onclick="display()">
+    </form>
+</body>
+
+</html>

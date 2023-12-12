@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Code | slideshow</title>
+</head>
+
+<body>
+    <script>
+        var Banners = new Array('omshingare__.jpeg', 'omshingare.jpg', 'omshingare__.jpeg');
+        var CurrentBanner = 0;
+        function display(operation) {
+            if (document.images) {
+                CurrentBanner = CurrentBanner + operation
+                if (CurrentBanner >= Banners.length) {
+                    CurrentBanner = 0;
+                }
+                else if (CurrentBanner < 0) {
+                    CurrentBanner = Banners.length - 1;
+                }
+                document.banner.src = Banners[CurrentBanner];
+            }
+        }
+    </script>
+    <center>
+        <img src="omshingare__.jpeg" alt="slideshow" name="banner">
+        <br>
+        <input type="button" name="button1" id="button1" value="Prev" onclick="display(-1)">
+        <input type="button" name="button2" id="button2" value="Next" onclick="display(1)">
+    </center>
+</body>
+
+</html>

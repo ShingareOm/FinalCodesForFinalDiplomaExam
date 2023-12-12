@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Series Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        input {
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #result {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Fibonacci Series Generator</h2>
+
+    <label for="limit">Enter the limit: </label>
+    <input type="number" id="limit" placeholder="Enter the limit">
+
+    <button onclick="generateFibonacci()">Generate Fibonacci Series</button>
+
+    <div id="result"></div>
+
+    <script>
+        function generateFibonacci() {
+            var limit = document.getElementById("limit").value;
+            var resultElement = document.getElementById("result");
+
+            // Check if the limit is a positive integer
+            if (!isNaN(limit) && limit > 0 && limit % 1 === 0) {
+                resultElement.innerHTML = "Fibonacci Series up to " + limit + ":<br>" + calculateFibonacci(limit);
+            } else {
+                resultElement.innerHTML = "Please enter a valid positive integer.";
+            }
+        }
+
+        function calculateFibonacci(limit) {
+            var fibonacciSeries = [];
+            var a = 0, b = 1, nextTerm;
+
+            for (var i = 1; i <= limit; i++) {
+                fibonacciSeries.push(a);
+                nextTerm = a + b;
+                a = b;
+                b = nextTerm;
+            }
+
+            return fibonacciSeries.join(', ');
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Cookie | By Om Shingare</title>
+    <script>
+        function createCookie() {
+            console.log(document.cookie);
+            var username = document.forms.form1.username.value;
+            console.log(username);
+            var Password = document.forms.form1.pass.value;
+            console.log(Password);
+            var date = new Date();
+            date.setMonth(date.getMonth() + 1);
+            var utc = date.toUTCString();
+            console.log(username);
+            document.write(username)
+            document.cookie = encodeURIComponent(username) + '=' + encodeURIComponent(Password) + ";" + "expires=" + utc + ";";
+        }
+    </script>
+</head>
+
+<body>
+    <form name="form1">
+        Username <input type="text" name="username" id="username" required>
+        <br><br> Password <input type="text" name="pass" id="2" required>
+        <br><br>
+        <input type="submit" value="create the cookie" onclick="createCookie()">
+    </form>
+</body>
+
+</html>

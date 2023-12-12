@@ -1,0 +1,24 @@
+<script>
+    var arr = new Array("a", "a", "a");
+    var arrLink = new Array("a", "a", "a");
+    var CurrentBanner = 0;
+    function linkLinks() {
+        window.location.href = `https://www.` + arrLink[CurrentBanner];
+    }
+    function display() {
+        if (document.images) {
+            CurrentBanner++;
+            if (CurrentBanner == arr.length) {
+                CurrentBanner = 0
+            }
+            pid.src = arr[CurrentBanner];
+            setTimeout(display, 100);
+        }
+    }
+</script>
+
+<body>
+    <center>
+        <a href="javascript:linkLinks()"><img src="1.jpg"> </a>
+    </center>
+</body>

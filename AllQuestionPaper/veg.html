@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruits and Vegetables</title>
+</head>
+
+<body>
+
+    <h2>Select a Category:</h2>
+
+    <!-- Radio buttons for selecting fruits or vegetables -->
+    <input type="radio" id="fruits" name="category" value="fruits" onchange="updateOptions()">
+    <label for="fruits">Fruits</label>
+
+    <input type="radio" id="vegetables" name="category" value="vegetables" onchange="updateOptions()">
+    <label for="vegetables">Vegetables</label>
+
+    <br><br>
+
+    <!-- Dropdown (select) list for specific options -->
+    <label for="options">Select an Option:</label>
+    <select id="options" name="options">
+        <!-- Options will be dynamically updated based on the selected category -->
+    </select>
+
+    <script>
+        // Function to update options based on the selected category
+        function updateOptions() {
+            // Get the selected category (fruits or vegetables)
+            var selectedCategory = document.querySelector('input[name="category"]:checked').value;
+
+            // Get the dropdown element
+            var dropdown = document.getElementById("options");
+
+            // Clear existing options
+            dropdown.innerHTML = "";
+
+            // Add new options based on the selected category
+            if (selectedCategory === "fruits") {
+                addOption("apple", "Apple");
+                addOption("banana", "Banana");
+                addOption("orange", "Orange");
+                // Add more fruit options as needed
+            } else if (selectedCategory === "vegetables") {
+                addOption("carrot", "Carrot");
+                addOption("broccoli", "Broccoli");
+                addOption("tomato", "Tomato");
+                // Add more vegetable options as needed
+            }
+        }
+
+        // Helper function to add options to the dropdown
+        function addOption(value, text) {
+            var option = document.createElement("option");
+            option.value = value;
+            option.text = text;
+            document.getElementById("options").add(option);
+        }
+    </script>
+
+</body>
+
+</html>
