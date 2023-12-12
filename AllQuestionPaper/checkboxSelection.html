@@ -1,0 +1,52 @@
+<!-- Describe how to evaluate checkbox selectio ?
+Explain with suitable example, Evaluating Checkbox Selection: 
+A checkbox is created by using the input element with the type=”checkbox” attribute-value pair. 
+A checkbox in a form has only two states(checked or un-checked) and is independent of the 
+state of other checkboxes in the form. Check boxes can be grouped together under a common name. 
+You can write javascript function that evaluates whether or not a check box was selected and then processes the result according to the needs of your application.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function evall() {
+            var string = "You have selected : ";
+            with (document.forms.form1) {
+                if (c.checked) {
+                    string += c.value + " ";
+                }
+                if (cpp.checked) {
+                    string += cpp.value + " ";
+                }
+                if (javascript.checked) {
+                    string += javascript.value + " ";
+                }
+                if (html.checked) {
+                    string += html.value + " ";
+                }
+                if (python.checked) {
+                    string += python.value + " ";
+                }
+
+            }
+            document.write(string)
+        }
+    </script>
+    <form name="form1">
+        <input type="checkbox" name="c" value="c">c
+        <input type="checkbox" name="cpp" value="cpp">cpp
+        <input type="checkbox" name="javascript" value="javascript">javascript
+        <input type="checkbox" name="html" value="html">html
+        <input type="checkbox" name="python" value="python">python
+        <input type="button" value="evaluate button" onclick="evall()">
+    </form>
+</body>
+
+</html>

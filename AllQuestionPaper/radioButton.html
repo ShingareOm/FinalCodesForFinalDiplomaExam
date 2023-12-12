@@ -1,0 +1,28 @@
+<!-- 6. Write a HTML script which displays 2 radio buttons to the users for fruits and vegetables and 1
+option list. When user select fruits radio button option list should present only fruits names to
+the user & when user select vegetable radio button option list should present only vegetable
+names to the user. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form1">
+        <input type="radio" name="radio1" value="Fruits" checked="true" onclick="updateList(this.value)">Fruits
+        <input type="radio" name="radio1" value="vegetables" onclick="updateList(this.value)">vegetables
+        <br>
+        <select name="select1" id="select1">
+            <option value="mango">mango</option>
+            <option value="banana">banana</option>
+            <option value="apple">apple</option>
+        </select>
+    </form>
+</body>
+
+</html>
